@@ -1,10 +1,29 @@
-"homes-for-sale/*":
-  - "homes-for-sale/page.md"
-  - "page.md"
+#
+# The key of each config block is the slug of the file updated, and the list
+# below are the file paths to bust..
+#
+# If it's for a single file, use the page slug. The example below will bust the
+# homepage when the about page is updated.
+#
+# "about-us":
+#   - "page.md"
+#
+# You can also use a folder pattern. In this example when a blog entry is
+# created or updated, the homepage and blog listing page will be busted.
+#
+# "blog/*":
+#   - "blog/page.md"
+#   - "page.md"
+#
+# You can configure buster here or create a yaml file at:
+#
+# _config/relative_cache_buster.yaml
+#
+# Or if you wanna get real fancy and split settings per environment, create a
+# relative_cache_buster directory and add in a yaml for each environment.
+#
+# ex: _config/relative_cache_buster/production.yaml
+#
 
-"testimonials/*":
-  - "testimonials/page.md"
 
-"helpful-links":
-  - "page.md"
 
