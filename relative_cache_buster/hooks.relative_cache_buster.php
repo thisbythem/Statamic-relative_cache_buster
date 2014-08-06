@@ -23,32 +23,32 @@ class Hooks_relative_cache_buster extends Hooks {
         }
       }
     }
-
     return $data;
   }
 
-  protected function busterIsNeeded() {
-    $html_cache_enabled = Addon::getApi('html_caching')->fetchConfig('enable');
-    $cache_length = Addon::getApi('html_caching')->fetchConfig('cache_length');
+  private function busterIsNeeded() {
+    $html_caching_addon  = Addon::getApi('html_caching');
+    $html_cache_enabled  = $html_caching_addon->fetchConfig('enable');
+    $cache_length        = $html_caching_addon->fetchConfig('cache_length');
     $valid_cache_lengths = array('on last modified', 'on cache update');
-    $valid_cache_length = in_array($cache_length, $valid_cache_lengths);
+    $valid_cache_length  = in_array($cache_length, $valid_cache_lengths);
 
     return $html_cache_enabled && $valid_cache_length;
   }
 
-  protected function shouldBustRelativePagesCache($filepath) {
+  private function shouldBustRelativePagesCache($filepath) {
    return (bool) $this->isUpdatedFile($filepath) || $this->isInDirectory($filepath);
   }
 
-  protected function isUpdatedFile($actual_file_path) {
+  private function isUpdatedFile($actual_file_path) {
     return (bool) strpos($this->file_updated, $actual_file_path);
   }
 
-  protected function isInDirectory($actual_file_path) {
+  private function isInDirectory($actual_file_path) {
     return (bool) Folder::matchesPattern($this->file_updated, $actual_file_path);
   }
 
-  protected function bustCacheForPages($pages) {
+  private function bustCacheForPages($pages) {
     $content_root = Config::getContentRoot();
     $full_content_root = rtrim(Path::tidy(BASE_PATH . "/" . $content_root), "/");
 
