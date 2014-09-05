@@ -19,10 +19,12 @@ class Tasks_relative_cache_buster extends Tasks {
         $actual_file_path = Path::resolve($url_pattern);
         if ($this->shouldBustRelativePagesCache($actual_file_path)) {
           $this->bustCacheForPages($pages_to_bust);
-          break;
+          return true;
         }
       }
     }
+    
+    return false;
   }
 
   private function busterIsNeeded() {
