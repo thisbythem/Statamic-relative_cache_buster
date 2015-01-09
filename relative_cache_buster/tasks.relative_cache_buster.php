@@ -2,13 +2,6 @@
 
 class Tasks_relative_cache_buster extends Tasks {
 
-  public $meta = array(
-    'name'       => 'Relative Cache Buster',
-    'version'    => '1.0.0',
-    'author'     => 'Jamie Wagner',
-    'author_url' => 'http://thisbythem.com'
-  );
-
   protected $file_updated;
 
   public function bustCache($file) {
