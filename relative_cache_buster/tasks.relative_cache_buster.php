@@ -23,7 +23,7 @@ class Tasks_relative_cache_buster extends Tasks {
         }
       }
     }
-    
+
     return false;
   }
 
