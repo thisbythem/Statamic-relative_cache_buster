@@ -29,6 +29,16 @@ busted.
  - "page.md"
 ```
 
+## API
+If you need to bust some cache within your own add-on, there's a
+`bustCache` method for your busting pleasure. Pass in a filepath and
+you're good to go!
+
+```
+$this->addon->api('relative_cache_buster')->bustCache('/path/to/file.md');
+```
+Courtesy of @edalzell. Thanks Erin!
+
 ## Feedback & Contribute
 Feedback? Ideas? Need support? Email us at
 [support@thisbythem.com](mailto:support@thisbythem.com) or feel free to
