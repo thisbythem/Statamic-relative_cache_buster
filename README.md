@@ -16,7 +16,7 @@ The example below will bust the homepage when the about page is updated.
 
 ```
 "about-us":
- - "page.md"
+ - "/"
 ```
 
 You can also use a directory pattern. In this example, when a blog entry
@@ -25,18 +25,35 @@ busted.
 
 ```
 "blog/*":
- - "blog/page.md"
- - "page.md"
+ - "/blog"
+ - "/"
 ```
 
 ## API
-If you need to bust some cache within your own add-on, there's a
-`bustCache` method for your busting pleasure. Pass in a filepath and
-you're good to go!
 
+Cache busting:
 ```
 $this->addon->api('relative_cache_buster')->bustCache('/path/to/file.md');
 ```
+
+or
+
+```
+$this->addon->api('relative_cache_buster')->bustAllCaches();
+```
+
+Cache regeneration:
+
+```
+$this->addon->api('relative_cache_buster')->regenerateACaches('/path/to/folder');
+```
+
+or
+
+```
+$this->addon->api('relative_cache_buster')->regenerateAllCaches();
+```
+
 Courtesy of @edalzell. Thanks Erin!
 
 ## Feedback & Contribute
